@@ -18,6 +18,7 @@
 
             <TextView
                 android:id="@+id/title"
+                style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -28,16 +29,19 @@
 
             <TextView
                 android:id="@+id/textView2"
+                style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/title"
                 android:layout_toLeftOf="@+id/imageView"
+                android:maxLines="5"
                 android:text="@{newsPiece.contens}"
-                tools:text="isidf fisf alfkdnlw fikd s flakndf slkdfn alknsdlfijnqlwiknf sdlkfjlqknsilskdnflswl" />
+                tools:text="isidf fisf alfkdnlw fikd s flakndf slkdfn alknsdlfijnqlwiknf sdlkfjlqknsilskdnflswl sdfsafa sdfasdfa sfasdfasdfasdfa afsdf sdfaasdf adsf asdf aa" />
 
             <TextView
                 android:id="@+id/textView3"
+                style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
