@@ -1,13 +1,9 @@
-package com.example.bean.studyforaac.ui
+package com.example.bean.studyforaac.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import com.example.bean.studyforaac.R
-import android.R.menu
 import android.support.v7.widget.Toolbar
-import android.view.MenuInflater
-import android.view.View
 
 
 class MainActivity : AppCompatActivity() {

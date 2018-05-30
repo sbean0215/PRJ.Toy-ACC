@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/title"
+                android:layout_above="@+id/textView3"
                 android:layout_toLeftOf="@+id/imageView"
                 android:maxLines="5"
                 android:text="@{newsPiece.contens}"
@@ -46,7 +47,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/textView2"
                 android:layout_toLeftOf="@+id/imageView"
                 android:text="@{newsPiece.time}"
                 tools:text="9:40 PM" />

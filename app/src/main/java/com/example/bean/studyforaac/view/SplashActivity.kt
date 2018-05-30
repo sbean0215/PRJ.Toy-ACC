@@ -1,4 +1,4 @@
-package com.example.bean.studyforaac.ui
+package com.example.bean.studyforaac.view
 
 import android.content.Intent
 import android.os.Bundle
