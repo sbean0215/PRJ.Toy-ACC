@@ -37,9 +37,21 @@ class RestClient {
         override fun intercept(chain: Interceptor.Chain): Response {
             val original = chain.request()
 
+           /* HttpUrl url = chain.request().httpUrl()
+                .newBuilder()
+                .addQueryParameter("api_key", mApiKey)
+                .build();
+        Request request = chain.request().newBuilder().url(url).build();
+        return chain.proceed(request);
+        */
+            val url = original.url().newBuilder()
+                    .addQueryParameter("apiKey", "key")
+                    .build()
+
             val request = original.newBuilder()
 //                    .addHeader("", "")
                     //TODO url intercept 해서 apiKey 넣을것
+                    .url(url)
                     .method(original.method(), original.body())
                     .build()
 
