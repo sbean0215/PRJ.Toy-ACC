@@ -5,6 +5,7 @@ interface NewsPieceItem {
     val author: String
     val title: String
     val description: String
+    val contents: String
     val url: String
     val urlToImage: String
     val publishedAt: String

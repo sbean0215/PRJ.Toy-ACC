@@ -3,11 +3,7 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable
-            name="newsPiece"
-            type="com.example.bean.studyforaac.model.NewsPieceItem" />
-    </data>
+
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -25,7 +21,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/imageView"
-                android:text="@{newsPiece.title}"
                 tools:text="news title" />
 
             <TextView
@@ -38,7 +33,6 @@
                 android:layout_above="@+id/textView3"
                 android:layout_toLeftOf="@+id/imageView"
                 android:maxLines="5"
-                android:text="@{newsPiece.contens}"
                 tools:text="isidf fisf alfkdnlw fikd s flakndf slkdfn alknsdlfijnqlwiknf sdlkfjlqknsilskdnflswl sdfsafa sdfasdfa sfasdfasdfasdfa afsdf sdfaasdf adsf asdf aa" />
 
             <TextView
@@ -49,7 +43,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/imageView"
-                android:text="@{newsPiece.time}"
                 tools:text="9:40 PM" />
 
             <ImageView
