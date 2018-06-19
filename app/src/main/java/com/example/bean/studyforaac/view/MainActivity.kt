@@ -19,11 +19,9 @@ class MainActivity : AppCompatActivity() {
     val mTablayout : TabLayout by lazy { mbinding.categoryTabLayout }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        super.onCreate(savedInstanceState)
 
         mbinding.isLoading = true
-
-        super.onCreate(savedInstanceState)
 //        1. normal
 //        setContentView(R.layout.activity_main)
 //        2. init for databinding in OnCreate
