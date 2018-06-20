@@ -1,6 +1,6 @@
 package com.example.bean.studyforaac.model
 
-interface NewsPieceItem {
+interface newsItem {
     val source: Any    //TODO
     val author: String
     val title: String

@@ -1,4 +1,4 @@
-package com.example.bean.studyforaac.view
+package com.example.bean.studyforaac.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -24,4 +24,7 @@ class ViewPagerAdpter : FragmentPagerAdapter {
         mFragmentTitleList.add(title)
     }
 
+    override fun getPageTitle(position: Int): CharSequence? {
+        return mFragmentTitleList.get(position)
+    }
 }

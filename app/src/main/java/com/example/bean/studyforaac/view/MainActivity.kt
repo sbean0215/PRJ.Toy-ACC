@@ -1,6 +1,7 @@
 package com.example.bean.studyforaac.view
 
 import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -8,10 +9,14 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import com.example.bean.studyforaac.R
 import android.support.v7.widget.Toolbar
+import android.util.Log
+import com.example.bean.studyforaac.adapter.ViewPagerAdpter
 import com.example.bean.studyforaac.databinding.ActivityMainBinding
+import com.example.bean.studyforaac.view.articleListFragement.OnFragmentInteractionListener
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
+
 
     //by lazy 쓰는것이 android UI 관리 측면에서 좋다고 함..
     val mbinding : ActivityMainBinding by lazy { DataBindingUtil.setContentView(this, R.layout.activity_main) as ActivityMainBinding }
@@ -42,13 +47,13 @@ class MainActivity : AppCompatActivity() {
         val adapter = ViewPagerAdpter(getSupportFragmentManager())
         val categorys = resources.getStringArray(R.array.category)
 
-        adapter.addFrag( Fragment() , categorys[0])
-        adapter.addFrag( Fragment() , categorys[1])
-        adapter.addFrag( Fragment() , categorys[2])
-        adapter.addFrag( Fragment() , categorys[3])
-        adapter.addFrag( Fragment() , categorys[4])
-        adapter.addFrag( Fragment() , categorys[5])
-        adapter.addFrag( Fragment() , categorys[7])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[0])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[1])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[2])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[3])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[4])
+        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[5])
+        mViewPager.adapter = adapter
     }
 
     fun setupTabs() {
@@ -56,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         mTablayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 mViewPager.setCurrentItem(tab.position)
+
+                Log.i("ddd", tab.text.toString())
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {
@@ -66,5 +73,10 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    override fun onFragmentInteraction(uri: Uri) {
+        Log.i("ddd", "dddddddddddddd")
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
