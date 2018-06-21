@@ -45,14 +45,11 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
 
     fun setupViewPager() {
         val adapter = ViewPagerAdpter(getSupportFragmentManager())
-        val categorys = resources.getStringArray(R.array.category)
+        val categories = resources.getStringArray(R.array.category)
 
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[0])
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[1])
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[2])
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[3])
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[4])
-        adapter.addFrag( articleListFragement.newInstance("", "") , categorys[5])
+        for (caterogy in categories)
+            adapter.addFrag( articleListFragement.newInstance(caterogy, "") , caterogy)
+
         mViewPager.adapter = adapter
     }
 

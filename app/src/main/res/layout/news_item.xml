@@ -4,49 +4,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="150dp"
+        app:contentPadding="3dp"
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/title_tv"
                 style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/imageView"
+                android:layout_toLeftOf="@+id/news_title_iv"
                 tools:text="news title" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/description_tv"
                 style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/published_time_tv"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@+id/title"
-                android:layout_above="@+id/textView3"
-                android:layout_toLeftOf="@+id/imageView"
+                android:layout_below="@+id/title_tv"
+                android:layout_toLeftOf="@+id/news_title_iv"
                 android:maxLines="5"
                 tools:text="isidf fisf alfkdnlw fikd s flakndf slkdfn alknsdlfijnqlwiknf sdlkfjlqknsilskdnflswl sdfsafa sdfasdfa sfasdfasdfasdfa afsdf sdfaasdf adsf asdf aa" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/published_time_tv"
                 style="@style/newsPiece_contents_wrap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/imageView"
+                android:layout_toLeftOf="@+id/news_title_iv"
                 tools:text="9:40 PM" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/news_title_iv"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"

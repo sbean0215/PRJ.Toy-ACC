@@ -6,11 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.articleListFragement">
 
-    <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/news_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/cardview_padding"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
 </FrameLayout>

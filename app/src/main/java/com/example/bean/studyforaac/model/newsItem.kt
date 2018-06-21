@@ -1,7 +1,7 @@
 package com.example.bean.studyforaac.model
 
 interface newsItem {
-    val source: Any    //TODO
+    val source: Any
     val author: String
     val title: String
     val description: String

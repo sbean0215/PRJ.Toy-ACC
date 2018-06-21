@@ -4,12 +4,16 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.example.bean.studyforaac.R
+import com.example.bean.studyforaac.adapter.newsAdapter
+import com.example.bean.studyforaac.model.newsItem
+import com.example.bean.studyforaac.model.newsItemModel
 
 private const val CATEGORY = "category"
 private const val ARG_PARAM2 = "param2"
@@ -36,7 +40,17 @@ class articleListFragement : Fragment() {
 
 //        val linearLayoutManager = LinearLayoutManager(activity!!.baseContext)
 //        recyclerView.layoutManager = linearLayoutManager
+
         recyclerView.setHasFixedSize(true)
+        val newsList: MutableList<newsItem> = arrayListOf()
+        val a : String = "aaaaaaaa"
+        val b : String = "bbbbbbbbb"
+        newsList.add( newsItemModel(a ,a ,a ,a ,a ,a ,a ,a ) )
+        newsList.add( newsItemModel(b ,b ,b ,b ,b ,b ,b ,b ) )
+        newsList.add( newsItemModel(a ,a ,a ,a ,a ,a ,a ,a ) )
+        newsList.add( newsItemModel(b ,b ,b ,b ,b ,b ,b ,b ) )
+
+        recyclerView.adapter = newsAdapter(newsList, context)
 
 
         return view
