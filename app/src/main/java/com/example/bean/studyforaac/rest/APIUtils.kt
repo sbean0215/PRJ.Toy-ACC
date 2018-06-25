@@ -1,7 +1,9 @@
 package com.example.bean.studyforaac.rest
 
-class APIUtils {
-    fun getAPIService(): APIService? {
-        return RestClient.clientInstance().create(APIService::class.java)
+object APIUtils {
+    val newsAPIService : APIService by lazy {  RestClient.Instance().create(APIService::class.java) }
+
+    fun getAPIService(): APIService {
+        return newsAPIService
     }
 }

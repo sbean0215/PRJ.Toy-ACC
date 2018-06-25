@@ -17,7 +17,7 @@ class RestClient {
         //https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=API_KEY
         val API_BASE_URL: String = "https://newsapi.org";
 
-        fun clientInstance(): Retrofit{
+        fun Instance(): Retrofit{
             val okHttpClient: OkHttpClient = OkHttpClient.Builder()
                     .addNetworkInterceptor(HeaderSettingInterceptor())
                     .build()
