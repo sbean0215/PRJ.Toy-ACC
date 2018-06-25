@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mbinding.isLoading = true
 //        1. normal
 //        setContentView(R.layout.activity_main)
 //        2. init for databinding in OnCreate
@@ -39,8 +38,10 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
     }
 
     fun setToolbar() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.inflateMenu(R.menu.main_menu)
+
+//        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+//        toolbar.inflateMenu(R.menu.main_menu)
+        mbinding.toolbar.inflateMenu(R.menu.main_menu)
     }
 
     fun setupViewPager() {

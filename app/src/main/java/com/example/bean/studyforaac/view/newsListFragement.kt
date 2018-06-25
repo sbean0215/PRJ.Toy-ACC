@@ -1,17 +1,20 @@
 package com.example.bean.studyforaac.view
 
 import android.content.Context
+import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.example.bean.studyforaac.R
 import com.example.bean.studyforaac.adapter.newsAdapter
+import com.example.bean.studyforaac.databinding.FragmentArticleListBinding
 import com.example.bean.studyforaac.model.newsItem
 import com.example.bean.studyforaac.model.newsItemModel
 
@@ -24,6 +27,9 @@ class articleListFragement : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    lateinit var mBinding : FragmentArticleListBinding
+    lateinit var recyclerView: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,28 +38,34 @@ class articleListFragement : Fragment() {
         }
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view : View = inflater.inflate(R.layout.fragment_article_list, container, false)
-        val recyclerView : RecyclerView = view.findViewById(R.id.news_list_recycler_view)
+//        val view : View = inflater.inflate(R.layout.fragment_article_list, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_article_list, container, false)
 
 //        val linearLayoutManager = LinearLayoutManager(activity!!.baseContext)
 //        recyclerView.layoutManager = linearLayoutManager
 
-        recyclerView.setHasFixedSize(true)
+        mBinding.newsList.setHasFixedSize(true)
+
         val newsList: MutableList<newsItem> = arrayListOf()
         val a : String = "aaaaaaaa"
         val b : String = "bbbbbbbbb"
+        newsList.add( newsItemModel(category.toString() , category!!,category!! ,category!! ,category!! ,category!! ,category!! ,category!! ) )
         newsList.add( newsItemModel(a ,a ,a ,a ,a ,a ,a ,a ) )
         newsList.add( newsItemModel(b ,b ,b ,b ,b ,b ,b ,b ) )
         newsList.add( newsItemModel(a ,a ,a ,a ,a ,a ,a ,a ) )
         newsList.add( newsItemModel(b ,b ,b ,b ,b ,b ,b ,b ) )
 
-        recyclerView.adapter = newsAdapter(newsList, context)
+        mBinding.newsList.adapter = newsAdapter(newsList, context)
 
 
-        return view
+        return mBinding.root
     }
 
     fun onButtonPressed(uri: Uri) {
