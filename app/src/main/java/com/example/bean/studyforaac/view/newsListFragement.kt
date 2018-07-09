@@ -1,6 +1,8 @@
 package com.example.bean.studyforaac.view
 
 import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -16,6 +18,7 @@ import com.example.bean.studyforaac.adapter.newsAdapter
 import com.example.bean.studyforaac.databinding.FragmentArticleListBinding
 import com.example.bean.studyforaac.model.newsItem
 import com.example.bean.studyforaac.model.newsItemModel
+import com.example.bean.studyforaac.viewmodel.newsListViewModel
 
 private const val CATEGORY = "category"
 private const val ARG_PARAM2 = "param2"
@@ -33,10 +36,6 @@ class articleListFragement : Fragment() {
         arguments?.let {
             category = it.getString(CATEGORY)
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +59,14 @@ class articleListFragement : Fragment() {
         return mBinding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        val factory: newsListViewModel.Factory = newsListViewModel.Factory(category!!)
+        val model: newsListViewModel = ViewModelProviders.of(this, factory).get(newsListViewModel::class.java!!)
+        subscribeUi(model)
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
@@ -68,6 +75,21 @@ class articleListFragement : Fragment() {
         super.onDetach()
     }
 
+
+    fun subscribeUi(viewModel: newsListViewModel) {
+        viewModel.newsList.observe(
+                this,
+                object: Observer<List<newsItem>> {
+                    override fun onChanged(t: List<newsItem>?) {
+                        if (t != null) {
+                            Log.i("?????","----");
+                        } else {
+                            Log.i("?????","----!");
+                        }
+                    }
+                }
+        )
+    }
 
     val mNewsItemClickCallBack = object : newsClickCallBack {
         override fun onClick(item: newsItemModel) {
